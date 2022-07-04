@@ -14,6 +14,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     name: teste deploy
+    needs: deploy
     steps:
       - name: run whoami
         run: whoami
