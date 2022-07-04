@@ -12,7 +12,7 @@ jobs:
         run: ls -la
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  
     name: teste deploy
     needs: deploy
     steps:
@@ -22,4 +22,16 @@ jobs:
       - name: run pwd
         run: pwd
         
+  test-env:
+    runs-on: ubuntu-latest  
+    name: teste env
+    needs: deploy
+    env: 
+      ADDCONNECTION: mysql-test
+    steps:
+      - name: run echo
+        run: echo $ADDCONNECTION
+
+      - name: run pwd
+        run: pwd
     
