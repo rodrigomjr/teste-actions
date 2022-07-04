@@ -27,7 +27,7 @@ jobs:
     name: teste env
     needs: deploy
     env: 
-      ADDCONNECTION: mysql-test
+      ADDCONNECTION: ${{ secrets.ADDCONNECTION }}
     steps:
       - name: run echo
         run: echo $ADDCONNECTION
