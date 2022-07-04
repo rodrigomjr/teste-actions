@@ -47,7 +47,21 @@ jobs:
         run: whoami
 
       - name: run pwd
-        run: pwd        
+        run: pwd  
+
+  test-env-production:
+    runs-on: ubuntu-latest  
+    name: teste env production
+    needs: test-env-development
+    environment: Production
+    env:
+      MYSQL_PORT: ${{ secrets.ENV_MYSQL_PORT }}
+    steps:
+      - name: run whoami
+        run: whoami
+
+      - name: run pwd
+        run: pwd                
 
   workflow-dispatch:
     runs-on: ubuntu-latest  
